@@ -1,8 +1,209 @@
-<html>
-  <header>
-    <title>Test</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Blog Mockup — Palette with Cyan Accent</title>
+  <style>
+    :root{
+      --gray-100:#f1f2f1; /* very light */
+      --gray-200:#d6d9d9; /* light */
+      --gray-400:#a7a5a3; /* mid */
+      --gray-600:#6f6d6a; /* dark mid */
+      --gray-900:#2f2d2c; /* near-black */
+      --accent:#06b6d4;   /* cyan replacing pink */
+    }
+
+    /* Base */
+    html{box-sizing:border-box}
+    *,*:before,*:after{box-sizing:inherit}
+    body{
+      margin:0;
+      color:var(--gray-900);
+      background:var(--gray-100);
+      font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    /* Layout */
+    .wrap{max-width:880px; margin:0 auto; padding:0 20px}
+    header.site{
+      background:linear-gradient(180deg, var(--gray-100), white);
+      border-bottom:1px solid var(--gray-200);
+    }
+    .brand{
+      display:flex; align-items:center; gap:.75rem;
+      padding:16px 0;
+    }
+    .brand-mark{
+      width:28px; height:28px; border-radius:8px;
+      background:linear-gradient(135deg, var(--accent), var(--gray-400));
+      box-shadow:0 1px 0 rgba(0,0,0,.05) inset;
+    }
+    nav a{
+      color:var(--gray-600); text-decoration:none; margin-right:16px; font-weight:500;
+    }
+    nav a:hover{ color:var(--accent); }
+
+    /* Article */
+    .hero{
+      margin:28px 0 18px;
+      border-radius:20px;
+      overflow:hidden;
+      background:white;
+      box-shadow:0 10px 30px rgba(0,0,0,.04);
+      border:1px solid var(--gray-200);
+    }
+    .hero .meta{ padding:18px 22px; border-top:1px solid var(--gray-200); background:var(--gray-100)}
+    .hero .tag{
+      display:inline-block; font-size:.75rem; letter-spacing:.02em; text-transform:uppercase;
+      color:white; background:var(--accent); padding:.25rem .5rem; border-radius:999px;
+    }
+
+    article h1{ font-size:2.25rem; line-height:1.2; margin:22px 0 10px; }
+    article h2{ font-size:1.35rem; margin:28px 0 8px; }
+    article p{ margin:.7rem 0; }
+    article a{ color:var(--accent); text-decoration:none; }
+    article a:hover{ text-decoration:underline; }
+    .byline{ color:var(--gray-600); font-size:.95rem; margin-bottom:24px; }
+
+    /* Figures */
+    figure{ margin:28px 0; }
+    figcaption{ font-size:.9rem; color:var(--gray-600); margin-top:.5rem; }
+    .card{
+      border:1px solid var(--gray-200); background:white; border-radius:16px; padding:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.04);
+    }
+
+    /* Inline highlight callout */
+    .callout{
+      border-left:4px solid var(--accent);
+      background:linear-gradient(0deg, white, var(--gray-100));
+      padding:14px 16px; border-radius:10px; border:1px solid var(--gray-200);
+    }
+
+    /* Code style */
+    code{ background:var(--gray-200); padding:.1rem .35rem; border-radius:6px }
+
+    /* Footer palette strip */
+    .swatches{ display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
+    .swatch{ height:44px; border-radius:10px; border:1px solid var(--gray-200) }
+    .s1{ background:#d6d9d9 } .s2{ background:#6f6d6a }
+    .s3{ background:#2f2d2c } .s4{ background:#06b6d4 }
+    .s5{ background:#a7a5a3 } .s6{ background:#f1f2f1 }
+
+    /* Responsive tweaks */
+    @media (min-width: 960px){
+      .hero svg{ height:420px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <strong>Palette Journal</strong>
+        <nav style="margin-left:auto">
+          <a href="#">Articles</a>
+          <a href="#">Topics</a>
+          <a href="#">About</a>
+        </nav>
+      </div>
+    </div>
   </header>
-  <body>
-    <p>Testing.</p>
-  </body>
+
+  <main class="wrap">
+    <!-- HERO IMAGE (SVG uses cyan + grays) -->
+    <section class="hero">
+      <svg viewBox="0 0 1200 420" role="img" aria-label="Abstract cyan and gray hero artwork" width="100%" height="320" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#06b6d4"/>
+            <stop offset="100%" stop-color="#a7a5a3"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="420" fill="url(#g1)"/>
+        <circle cx="260" cy="180" r="140" fill="#f1f2f1" opacity="0.65"/>
+        <circle cx="880" cy="250" r="200" fill="#2f2d2c" opacity="0.18"/>
+        <rect x="120" y="280" width="340" height="60" rx="14" fill="#2f2d2c" opacity="0.32"/>
+        <rect x="520" y="70" width="560" height="80" rx="16" fill="#f1f2f1" opacity="0.35"/>
+      </svg>
+      <div class="meta">
+        <span class="tag">Design Systems</span>
+        <span style="margin-left:10px; color:var(--gray-600)">Updated today</span>
+      </div>
+    </section>
+
+    <article>
+      <h1>Designing with Restraint: Cyan as a Strategic Accent</h1>
+      <p class="byline">By TL Stephanchick · 6 min read</p>
+
+      <p>Swapping a single brand color can refresh an entire experience. Below is a simple pattern: lean on neutrals <code>#2f2d2c</code>, <code>#6f6d6a</code>, and <code>#d6d9d9</code> for the frame; use a disciplined cyan <code>#06b6d4</code> for action, emphasis, and data. This post shows the idea with a hero, two inline images, and a clean reading layout.</p>
+
+      <div class="callout">
+        Keep the accent rare. If everything shouts, nothing speaks. A good heuristic: fewer than 10% of pixels should use the accent.
+      </div>
+
+      <!-- IMAGE 1: Mosaic using the palette -->
+      <figure class="card">
+        <svg viewBox="0 0 800 400" role="img" aria-label="Mosaic of the chosen color palette" width="100%" height="auto">
+          <rect width="800" height="400" fill="#f1f2f1"/>
+          <g transform="translate(40,40)">
+            <rect width="220" height="140" fill="#d6d9d9" rx="12"/>
+            <rect x="260" width="220" height="140" fill="#6f6d6a" rx="12"/>
+            <rect x="520" width="220" height="140" fill="#2f2d2c" rx="12"/>
+
+            <rect y="180" width="220" height="140" fill="#06b6d4" rx="12"/>
+            <rect x="260" y="180" width="220" height="140" fill="#a7a5a3" rx="12"/>
+            <rect x="520" y="180" width="220" height="140" fill="#f1f2f1" rx="12" stroke="#d6d9d9"/>
+          </g>
+        </svg>
+        <figcaption>Palette, with pink swapped for cyan <strong>#06b6d4</strong>. Neutral grid does the heavy lifting; cyan provides focus.</figcaption>
+      </figure>
+
+      <h2>Why this works</h2>
+      <p>The near-black <strong>#2f2d2c</strong> provides excellent text contrast on light backgrounds. Mid-grays <strong>#6f6d6a</strong> and <strong>#a7a5a3</strong> support dividers, cards, and captions without competing for attention. The light pair <strong>#d6d9d9</strong> and <strong>#f1f2f1</strong> keep the canvas calm. Cyan steps in only for links, CTAs, and data highlights.</p>
+
+      <!-- IMAGE 2: Simple “data viz” bars using accent -->
+      <figure class="card">
+        <svg viewBox="0 0 800 320" role="img" aria-label="Bar visualization using cyan accent" width="100%" height="auto">
+          <rect width="800" height="320" fill="white"/>
+          <g transform="translate(60,40)" stroke="#d6d9d9" stroke-width="1">
+            <rect x="0" y="220" width="120" height="40" fill="#6f6d6a" rx="8"/>
+            <rect x="160" y="180" width="120" height="80" fill="#a7a5a3" rx="8"/>
+            <rect x="320" y="120" width="120" height="140" fill="#d6d9d9" rx="8"/>
+            <rect x="480" y="60"  width="120" height="200" fill="#06b6d4" rx="8"/>
+            <rect x="640" y="100" width="120" height="160" fill="#2f2d2c" opacity=".6" rx="8"/>
+          </g>
+        </svg>
+        <figcaption>Use cyan sparingly for emphasis in charts and links. Everything else stays neutral.</figcaption>
+      </figure>
+
+      <h2>Practical usage notes</h2>
+      <ul>
+        <li><strong>Links & buttons:</strong> cyan background with white text; hover states lighten the background or add an outline.</li>
+        <li><strong>Borders & dividers:</strong> prefer <code>#d6d9d9</code> for soft separation.</li>
+        <li><strong>Cards:</strong> white background, 1px border in <code>#d6d9d9</code>, small shadow.</li>
+        <li><strong>Text:</strong> body in <code>#2f2d2c</code>, secondary text/captions in <code>#6f6d6a</code>.</li>
+      </ul>
+
+      <p>Want to try variations? Change <code>--accent</code> to another cyan and the rest of the system will update automatically.</p>
+    </article>
+
+    <footer class="card" style="margin:36px 0 64px">
+      <h2 style="margin-top:0">Swatch Strip</h2>
+      <div class="swatches" aria-hidden="true">
+        <div class="swatch s1"></div>
+        <div class="swatch s2"></div>
+        <div class="swatch s3"></div>
+        <div class="swatch s4"></div>
+        <div class="swatch s5"></div>
+        <div class="swatch s6"></div>
+      </div>
+    </footer>
+  </main>
+</body>
 </html>
